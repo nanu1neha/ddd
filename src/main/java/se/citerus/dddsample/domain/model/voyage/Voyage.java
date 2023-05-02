@@ -1,12 +1,12 @@
 package se.citerus.dddsample.domain.model.voyage;
 
-import org.apache.commons.lang.Validate;
+import org.apache.commons.lang3.Validate;
 import se.citerus.dddsample.domain.model.location.Location;
 import se.citerus.dddsample.domain.shared.Entity;
 
 import javax.persistence.*;
+import java.time.Instant;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -102,7 +102,7 @@ public class Voyage implements Entity<Voyage> {
       this.departureLocation = departureLocation;
     }
 
-    public Builder addMovement(Location arrivalLocation, Date departureTime, Date arrivalTime) {
+    public Builder addMovement(Location arrivalLocation, Instant departureTime, Instant arrivalTime) {
       carrierMovements.add(new CarrierMovement(departureLocation, arrivalLocation, departureTime, arrivalTime));
       // Next departure location is the same as this arrival location
       this.departureLocation = arrivalLocation;
